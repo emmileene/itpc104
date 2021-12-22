@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ITPC104 - Discrete Structures</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+ <body> 
+	 
+     <div class="sect2">
+      <h3 id="_proposition_equivalences">
+      Proposition Equivalences
+      </h3>
+      <div class="paragraph">
+       <p>
+        Two propositions are considered
+        <strong>
+         logically equivalent
+        </strong>
+        (or simply
+        <strong>
+         equivalent
+        </strong>
+        ) if they have the same truth values in every instance.  It is often easiest to see this by constructing a truth table for the two propositions and comparing.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example
+         </div>
+         <p>
+          Consider the propositions \(\neg p \lor q\) versus \(p\implies q\).
+         </p>
+        </div>
+        <table class="tableblock frame-all grid-all" style="width: 50%;">
+         <colgroup>
+          <col style="width: 25%;"/>
+          <col style="width: 25%;"/>
+          <col style="width: 25%;"/>
+          <col style="width: 25%;"/>
+         </colgroup>
+         <thead>
+          <tr>
+           <th class="tableblock halign-left valign-top">
+            \(p\)
+           </th>
+           <th class="tableblock halign-left valign-top">
+            \(q\)
+           </th>
+           <th class="tableblock halign-left valign-top">
+            \(\neg p \lor q\)
+           </th>
+           <th class="tableblock halign-left valign-top">
+            \(p \implies q\)
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             False
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+           <td class="tableblock halign-left valign-top">
+            <p class="tableblock">
+             True
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div class="paragraph">
+         <p>
+          Since the truth table in all rows is the same for the two compound propositions, they are equivalent.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          Consider three compound propositions:
+         </p>
+        </div>
+        <div class="olist arabic">
+         <ol class="arabic">
+          <li>
+           <p>
+            \((p\land q) \implies r\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \((p \implies q) \land (p \implies r)\)
+           </p>
+          </li>
+          <li>
+           <p>
+            \(p \implies (q \land r)\)
+           </p>
+          </li>
+         </ol>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below reveals the truth table for 1.  Modify it for 2 and 3 in order to determine which set of compound propositions are equivalent.
+         </p>
+        </div>
+        <div class="paragraph">
+         <p>
+          <strong>
+           Hint:
+          </strong>
+          You only need to change line 11.
+         </p>
+        </div>
+        <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20not%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20r%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20for%20r%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20a%20%3D%20implication%28conjunction%28p,%20q%29,%20r%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28p,%20q,%20r,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20not%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20r%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20for%20r%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20a%20%3D%20implication%28conjunction%28p,%20q%29,%20r%29%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28p,%20q,%20r,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_de_morgans_laws">
+        De Morgan’s Laws
+       </h4>
+       <div class="paragraph">
+        <p>
+         Two important logical equivalences are De Morgan’s Law.  These describe how we "distribute" the negation across the and and or operators.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          De Morgan’s Laws
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\neg (p \land q)\equiv \neg p \lor \neg q\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\neg (p \lor q)\equiv \neg p \land \neg q\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           We use the symbol \(\equiv\) to denote two statements which are logically equivalent.
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Recall the truth table for the implication proposition from above.
+          </p>
+         </div>
+         <table class="tableblock frame-all grid-all" style="width: 50%;">
+          <colgroup>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+          </colgroup>
+          <thead>
+           <tr>
+            <th class="tableblock halign-left valign-top">
+             \(p\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(q\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(p \implies q\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(\neg (p \implies q)\)
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Use the truth table to find a proposition that is logically equivalent to \( \neg (p \implies q) \)?
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_tautologies_contradictions_and_contingencies">
+        Tautologies, Contradictions and Contingencies
+       </h4>
+       <div class="paragraph">
+        <p>
+         A proposition is a
+         <strong>
+          tautology
+         </strong>
+         if its truth value is
+         <em>
+          always
+         </em>
+         True.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A proposition is a
+         <strong>
+          contradiction
+         </strong>
+         if its truth value is
+         <em>
+          always
+         </em>
+         False.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A proposition that is neither a tautology nor a contradiction is said to
+be a
+         <strong>
+          contingency
+         </strong>
+         .
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Tautology and Contradiction
+          </div>
+          <p>
+           \(  p \lor \neg p\) is an example of a tautology.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \( p \land \neg p\) is an example of a contradiction.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           This can be seen in the truth table.
+          </p>
+         </div>
+         <table class="tableblock frame-all grid-all" style="width: 50%;">
+          <colgroup>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+           <col style="width: 25%;"/>
+          </colgroup>
+          <thead>
+           <tr>
+            <th class="tableblock halign-left valign-top">
+             \(p\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(\neg p\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \( p \lor \neg p\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(p \land \neg p\)
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              True
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              False
+             </p>
+             <p class="tableblock">
+              Notice that the truth values for \(p \lor \neg p\) are all True and \(p \land \neg p\) are all False.
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_predicates_and_quantifiers">
+    Predicates and Quantifiers
+      </h3>
+      <div class="sect3">
+       <h4 id="_predicates">
+      Predicates
+       </h4>
+       <div class="paragraph">
+        <p>
+         A
+         <strong>
+          predicate
+         </strong>
+         is a statement involving a variable.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="ulist">
+          <div class="title">
+           Example - Predicates
+          </div>
+          <ul>
+           <li>
+            <p>
+             \(x \leq 3\)
+            </p>
+           </li>
+           <li>
+            <p>
+             computer \(c\) is infected
+            </p>
+           </li>
+           <li>
+            <p>
+             country \(x\) is on continent \(y\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Predicates are denoted as \(P(x)\) or \(Q(x,y)\) where \(P\) and \(Q\) represent the statements and \(x\) and \(y\) represent the possible values.
+After a value is assigned to each variable, the predicate becomes a proposition which has a truth value.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(x)\) be the predicate \(x \leq 3\).  What are the truth values of \(P(5)\) and \(P(2)\)?
+          </p>
+         </div>
+         <iframe frameborder="5" height="300" src="https://pythontutor.com/iframe-embed.html#code=def%20P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aa%20%3D%20P%285%29%0Ab%20%3D%20P%282%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=300" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20P%28x%29%3A%0A%20%20%20%20return%20x%20%3C%3D%203%0A%0Aa%20%3D%20P%285%29%0Ab%20%3D%20P%282%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(Q(x,y)\) be the statement \(x-y=4\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Edit the Python tutor below to find the truth values of \(Q(6,2)\), \(Q(1,5)\), and \(Q(-2,2)\).
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aa%20%3D%20Q%286,%202%29%0Ab%20%3D%20Q%281,%205%29%0Ac%20%3D%20Q%28-2,%202%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20Q%28x,%20y%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aa%20%3D%20Q%286,%202%29%0Ab%20%3D%20Q%281,%205%29%0Ac%20%3D%20Q%28-2,%202%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_quantifiers">
+        Quantifiers
+       </h4>
+       <div class="paragraph">
+        <p>
+         Consider the statements
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           For all integers \(x\), \(x^2\geq 0\).
+          </p>
+         </li>
+         <li>
+          <p>
+           Some student in the class has a birthday in July.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Each of these statements considers a proposition over an entire population or set, called the domain, and quantifies how many elements (or people) in the set satisfy the proposition.  To represent this idea, we use two main quantifiers, the
+         <strong>
+          universal quantifier
+         </strong>
+         and the
+         <strong>
+          existential quantifier
+         </strong>
+         .
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          Universal Quantifier
+         </strong>
+         , \(\forall\), represents the statement "for all", "for every", "for each".  When it comes before a statement, it means that statement is true
+         <em>
+          for all values
+         </em>
+         in the domain.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <p>
+           Example
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Universal Quantifier \(\forall x, x + 1 \gt x\)
+          </p>
+         </div>
+         <div class="openblock">
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(x)\) be the statement \(x + 1 \gt x\).  Is this true for all integers x?
+          </p>
+         </div>
+         <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20P%28x%29%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0A%20%20%20%20%20%20%20%20%0Aprint%28stmt%29%0Aprint%28forall%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20P%28x%29%20%3D%3D%20False%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0A%20%20%20%20%20%20%20%20%0Aprint%28stmt%29%0Aprint%28forall%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="admonitionblock note">
+          <table>
+           <tr>
+            <td class="icon">
+             <i class="fa icon-note" title="Note">
+             </i>
+            </td>
+            <td class="content">
+             We use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Universal Quantifier \(\forall x, x + x \gt x\)
+          </p>
+         </div>
+         <div class="openblock">
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(x)\) be the statement \(x + x \gt x\).  Is this true for all integers x?
+          </p>
+         </div>
+         <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%20x%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20not%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0Aprint%28stmt%29%0Aprint%28forall%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=stmt%20%3D%20%22For%20all%20x,%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x%20%2B%20x%20%3E%20x%0A%0Aforall%20%3D%20True%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20false%0A%20%20%20%20if%20not%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20forall%20%3D%20False%0Aprint%28stmt%29%0Aprint%28forall%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          Existential Quantifier
+         </strong>
+         , \(\exists\), represents the statement "there exists", "for some", "at least one".  When it comes before a statement, it means the statement is true for
+         <em>
+          at least one value
+         </em>
+         in the domain.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Existential Quantifier \(\exists x, x^2 = 4\)
+          </p>
+         </div>
+         <div class="openblock">
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(x)\) be the statement \(x^2 = 4\).  Is this true for at least one integer x?
+          </p>
+         </div>
+         <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**2%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**2%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Existential Quantifier \(\exists x, x^3 = 4\)
+          </p>
+         </div>
+         <div class="openblock">
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Let \(P(x)\) be the statement \(x^3 = 4\).  Is this true for at least one integer x?
+          </p>
+         </div>
+         <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**3%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=stmt%20%3D%20%22There%20exists%20an%20x,%20such%20that%20P%28x%29.%22%0Adef%20P%28x%29%3A%0A%20%20%20%20return%20x**3%20%3D%3D%204%0A%0Aexists%20%3D%20False%0Afor%20x%20in%20%5B-2,%20-1,%200,%201,%202%5D%3A%0A%20%20%20%20%23%20check%20if%20at%20least%201%20is%20true%0A%20%20%20%20if%20P%28x%29%3A%0A%20%20%20%20%20%20%20%20exists%20%3D%20True%0Aprint%28stmt%29%0Aprint%28exists%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="admonitionblock note">
+          <table>
+           <tr>
+            <td class="icon">
+             <i class="fa icon-note" title="Note">
+             </i>
+            </td>
+            <td class="content">
+             Again, we use the example domain [-2, -1, 0, 1, 2] because code can not check all integers.
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Recall the previous example statements:
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           For all integers \(x\), \(x^2 \geq 0\).
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(P(x)\) be the predicate "\(x^2 \geq 0\)".  Then we write the statement as \(\forall x P(x)\), where the domain is the set of all integers.  This quantified statement will be true since anytime you square a nonzero integer it is positive and \(0^2=0\).
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Some student in the class has a birthday in July.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(Q(s)\) be the predicate "student \(s\) has a birthday in July".  Then we write the statement as \(\exists s Q(s)\), where the domain is the set of all students in the class. This statement will be true as long as at least one student in the class has a birthday in July.  It will be false, otherwise.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_negation_of_quantifiers">
+       Negation of Quantifiers
+       </h4>
+       <div class="paragraph">
+        <p>
+         It is important to consider the negation of a quantified expression.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           "Every student in this class has taken Programming Fundamentals."
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is a universally quantified statement and can be expressed as \(\forall x P(x)\) where \(P(x)\) is the statement "\(x\) has taken Programming Fundamentals" and the domain consists of all the students in this class.  The negation of the statement would be "It is not true that every student in this  has taken Programming Fundamentals."  Equivalently,
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           "There is a student in this class who has NOT taken Programming Fundamentals."
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is an existentially quantified statement expressed as \(\exists x \neg P(x)\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         This demonstrates that the negation of a universally quantified statement is an existential statement.  In symbols, we have \(\neg \forall x P(x)\equiv \exists x \neg P(x)\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Similarly, the negation of an existential statement is a universal statement.  \(\neg \exists x P(x) \equiv \forall x \neg P(x)\).
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          De Morgan’s Laws with Quantifiers
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\neg \forall x P(x)\equiv \exists x \neg P(x)\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \(\neg \exists x P(x) \equiv \forall x \neg P(x)\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="ulist">
+          <div class="title">
+           Example
+          </div>
+          <ul>
+           <li>
+            <p>
+             Someone in the class can speak Latin.
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <p>
+           Using quantifiers, we write this statement as \(\exists x L(x)\) where \(L(x)\) is the proposition "\(x\) speaks Latin." and the domain is the students in the class.
+Its negation would be \(\forall x \neg L(x)\).
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             All the students in the class can not speak Latin.
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Find the negation of the statement "For all integers \(x\), \(x^2 \geq x\)."
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The predicate of a quantified statement could be a compound statement.  For instance,
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           Some dogs are big and fluffy.
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         This is written as \(\exists x (B(x) \land F(x))\) where \(B(x)\) is the proposition "\(x\) is big." and \(F(x)\) is the proposition "\(x\) is fluffy." and the domain is dogs.  Negating this statement would give
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         \(\neg \exists x (B(x) \land F(x)) \equiv \forall x \neg (B(x) \land F(x)) \equiv \forall x (\neg B(x) \lor \neg F(x))\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In words,
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           All dogs are not big or not fluffy.
+          </p>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_nested_quantifiers">
+        Nested Quantifiers
+       </h4>
+       <div class="paragraph">
+        <p>
+         There are times it will take more than one quantifier to express a statement.
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           For all integers \(x\), there exists an integer \(y\), such that \(x+y=0\).
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         This statement contains both a universal and an existential quantifier.  \(\forall x \exists y S(x,y)\) where \(x\) and \(y\) are integers and \(S(x,y)\) is the proposition \(x+y=0\).  This statement means, if you have any integer \(x\) (for instance \(x=5\)) then you can find an integer \(y\) (for instance \(y=-5\)) such that \(x+y=0\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The order of the quantifiers matters.  \(\exists x \forall y S(x,y)\) would be
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           There exists an integer \(x\), such that for all integers \(y\), \(x+y=0\).
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that in this statement you find an integer \(x\) so that when you add
+         <strong>
+          any
+         </strong>
+         integer \(y\) to it you always get 0.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The first statement, for all integers \(x\), there exists an integer \(y\) such that \(x+y=0\), is true.  For any integer \(x\) you could choose \(y=-x\) and \(x+y=x+(-x)=0\).
+While the second statement, there exists an integer \(x\), such that for all integers \(y\), \(x+y=0\), is false.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Let \(Q(x,y)\) be the statement \(xy=0\).  If the domain for both variables consists of all integers, what are the truth values of the following statements?
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             \(Q(0,3)\) is True since \(0\cdot 3=0\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(Q(6,2)\) is False since \(6\cdot 2=12\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\exists x Q(x,4)\) is True.  Use the value of \(x=0\), and since \(0\cdot 4=0\) there is at least one integer \(x\) so that \(x\cdot 4=0\).
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\forall x \exists y Q(x,y)\) is True.  If you have any integer \(x\), you can pick the value \(y=0\) and get \(x\cdot 0=0\).
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="ulist">
+          <div class="title">
+           You Try
+          </div>
+          <ul>
+           <li>
+            <p>
+             \(\forall y Q(1,y)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\exists x \forall y Q(x,y)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \(\forall x \forall y Q(x,y)\)
+            </p>
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         To negate nested quantifiers, repeatedly apply De Morgan’s Laws of negating a quantifier and a predicate.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Namely, \(\neg \forall x P(x) \equiv \exists x \neg P(x)\) and \(\neg \exists x P(x) \equiv \forall x \neg P(x)\).
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Negation of quantified statements
+          </div>
+          <p>
+           Find the negation of the statment "For all integers \(x\), there exists an integer \(y\) such that \(x=-y\)."
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Using quantifiers, we write this statement as \(\forall x \exists y N(x,y)\) where \(N(x,y)\) is the proposition "\(x=-y\)." and the domain of \(x\) and \(y\) is the integers.
+Its negation would be \(\exists x \forall y \neg N(x,y)\).
+          </p>
+         </div>
+         <div class="ulist">
+          <ul>
+           <li>
+            <p>
+             There exists an integer x, such that for all integers y, \(x \neq -y\).
+            </p>
+           </li>
+          </ul>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Find the negation of the statement "Some student in the class will solve every practice problem."
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Hint:  Let \(x\) be a student in the class, \(y\) be a practice problem, and \(P(x,y)\) be the statement "student \(x\) has solved practice problem \(y\)".
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_applications_of_logic">
+       Applications of Logic
+      </h3>
+      <div class="paragraph">
+       <p>
+        In this section we consider two applications of logic to information technology and
+computer science. The first involves bitwise operations, and the second designing and analyzing logic circuits.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_bitwise_operations">
+         Bitwise operations
+       </h4>
+       <div class="paragraph">
+        <p>
+         A
+         <strong>
+          bitwise operation
+         </strong>
+         is a
+         <em>
+          Boolean operation
+         </em>
+         that operates on the individual bits (\(0s\), or \(1s\)) of the operand(s) and are summarized
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="olist loweralpha">
+          <div class="title">
+           Bitwise Operations
+          </div>
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             The
+             <strong>
+              bitwise AND
+             </strong>
+             , denoted by "&amp;", applies the
+             <em>
+              and
+             </em>
+             \(\land\)  to the corresponding bits of each operand.
+            </p>
+           </li>
+           <li>
+            <p>
+             The
+             <strong>
+              bitwise OR
+             </strong>
+             , denoted by "\(|\)", applies the
+             <em>
+              or
+             </em>
+             \(\lor\) to the corresponding bits of each operand.
+            </p>
+           </li>
+           <li>
+            <p>
+             The
+             <strong>
+              bitwise XOR
+             </strong>
+             , denoted by "\({}^{\wedge}\)", applies the disjunctive or \(\oplus \)   to the
+corresponding bits of each operand.
+            </p>
+           </li>
+           <li>
+            <p>
+             The
+             <strong>
+              bitwise NOT
+             </strong>
+             , denoted by "!", applies the negation \(¬\) (flips \(0\longleftrightarrow 1\) ), to the
+corresponding bits of each operand.
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         We summarize the truth tables for the bitwise boolean operators.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2857%;"/>
+         <col style="width: 14.2858%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(AND\) &amp;
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \( \ OR\   | \)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(XOR\) \({}^{\wedge}\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(IF\) \(\Rightarrow\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(IFF\) \(\Leftrightarrow\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Bitwise Operations
+          </div>
+          <p>
+           Find  the bitwise \(AND, OR, XOR\) for the following binary numbers,
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \[ A = 111101\]
+
+\[ B = 001111\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Using the truth tables for Boolean operators, where the results are noted in the bottom row, we have
+          </p>
+         </div>
+         <div class="openblock">
+          <div class="content">
+          </div>
+         </div>
+         <table class="tableblock frame-all grid-all" style="width: 50%;">
+          <colgroup>
+           <col style="width: 33.3333%;"/>
+           <col style="width: 33.3333%;"/>
+           <col style="width: 33.3334%;"/>
+          </colgroup>
+          <thead>
+           <tr>
+            <th class="tableblock halign-left valign-top">
+             Bitwise AND
+            </th>
+            <th class="tableblock halign-left valign-top">
+             Bitwise OR
+            </th>
+            <th class="tableblock halign-left valign-top">
+             Bitwise XOR
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              111101
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              111101
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              111101
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              001111
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              001111
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              001111
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              <strong>
+               001101
+              </strong>
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              <strong>
+               111111
+              </strong>
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              <strong>
+               110010
+              </strong>
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_logic_circuits">
+        Logic Circuits
+       </h4>
+       <div class="paragraph">
+        <p>
+         Logic circuits are important in designing the arithmetic and logic units of a computer processor.
+Consider the problem of adding two \(8\)-bit numbers in binary. In binary \(0+0=0\), and \(1+0=0+1=1\), but,
+as in decimal addition, in binary \(1+1=2\), which in binary will be a sum of \(0\) and a carry of \(1\) to the next
+significant column on the left.  Thinking then of adding a specific column of two binary digits, say \(A\) and
+\(B\), involves as input the digits \(A, B\) and the carry in from the previous column say \(C_{in}\). The output
+will be the sum \(S\) and the carry out to the next column, say \(C_{out}\). These are the basic components of what is called
+a binary adder.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="binary adder" src="images/binary_adder.png"/>
+        </div>
+        <div class="title">
+          A Binary adder
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         The logic table for binary addition based on the digital inputs \(A, B, C_{in}\), and digital outputs
+\(S\) and \(C_{out}\) is summarized in the table.
+        </p>
+       </div>
+       <div class="openblock">
+        <div class="content">
+        </div>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <caption class="title">
+        Truth table for Binary adder
+        </caption>
+        <colgroup>
+         <col style="width: 20%;"/>
+         <col style="width: 20%;"/>
+         <col style="width: 20%;"/>
+         <col style="width: 20%;"/>
+         <col style="width: 20%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(A\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(B\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(C_{in}\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(\mathbf{S}\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(\mathbf{C_{out}}\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            1
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{1}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            0
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            \(\mathbf{0}\)
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="paragraph">
+        <p>
+         It can be shown that the logic for the outputs \(S\), and \(C_{out}\) is given by the following propositions
+
+\[ C_{out}=(A\land B)\lor \left(B\land C_{in}\right)\lor \left(A\land C_{in}\right)\]
+
+\[S=\left(\sim A\land \sim B\land C_{in}\right)\lor \left(\sim A\land B\land
+\sim C_{in}\right)\lor \left(A\land \sim B\land \sim C_{in}\right)\lor \left(A\land B\land C_{in}\right) \]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Implementing these logical outputs based on the inputs \((A,B, C_{in})\), is through the use of electronic
+circuits called logic gates.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The basic logic gates, are the
+         <strong>
+          Inverter
+         </strong>
+         or
+         <em>
+          Not
+         </em>
+         gate, the
+         <strong>
+          And
+         </strong>
+         gate, the
+         <strong>
+          Or
+         </strong>
+         gate and the
+         <strong>
+          Xor
+         </strong>
+         gate.
+The graphical representation for each is shown below.
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="basic gates" src="images/basic_gates.png"/>
+        </div>
+        <div class="title">
+         Figure 11. Basic gates
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         We end this section by  first analyzing logic circuits to give their outputs in
+terms of their input variables, and then, constructing logic circuits based on logical statements.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Output of a logic circuit in terms Input
+          </div>
+          <p>
+           Determine the output of the following logic circuit in terms of the input variables, \(p, q\), and \(r\).
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="logic gate 3" src="images/logic_gate_3.png"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Proceeding left to right, determine the output of the leftmost gates first using the basic gate outputs.
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="logic gate 3a" src="images/logic_gate_3a.png"/>
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The output of the logic circuit is \( ( p \lor q)\land ( \neg p \lor \neg q)\)
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         In the next two examples, we design logic circuits based on logical propositions. The idea
+is to work backward using order of operations from the right to the left.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Design a Logic Circuit
+          </div>
+          <p>
+           Design a logic circuit for \((p\vee\lnot\ q)\land\lnot\ p\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Working backwards from right to left we have the following sequence of gates
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           1) An
+           <strong>
+            AND
+           </strong>
+           gate \((p\vee\lnot\ q)\underline{\land} \lnot\ p\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           2) The inputs to the
+           <strong>
+            AND
+           </strong>
+           gate are \((p\vee\lnot\ q)\) and \(\lnot\ p\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           3) These inputs come from the output of an
+           <strong>
+            INVERTER
+           </strong>
+           , for \(\underline{\lnot}\ p\) and an
+           <strong>
+            OR
+           </strong>
+           gate \((p \underline{\vee}\lnot\ q)\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           4) There are two inputs to the
+           <strong>
+            OR
+           </strong>
+           gate \((p \underline{\vee}\lnot\ q)\), being \(p\), and the output
+of an
+           <strong>
+            INVERTER
+           </strong>
+           , \(\underline{\lnot} q\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Putting these now in left to right order we obtain the following logic circuit.
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="logic gate 4" src="images/logic_gate_4.png"/>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example - Design a Logic Circuit
+          </div>
+          <p>
+           Design a logic circuit for \(r\land (p\lor (r\land \neg q))\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           Working backwards from right to left we have the following sequence of gates
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           1) An
+           <strong>
+            AND
+           </strong>
+           gate \(r\underline{\land} (p\lor (r\land \neg q))\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           2) The inputs to the
+           <strong>
+            AND
+           </strong>
+           gate are \(r\) and \(p\lor (r\land \neg q)\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           3) The input, \(p\lor (r\land \neg q)\), comes from the output of an
+           <strong>
+            OR
+           </strong>
+           gate for \(p \underline{\lor} (r\land \neg q)\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           4) The inputs to the
+           <strong>
+            OR
+           </strong>
+           gate, \(p \underline{\lor} (r\land \neg q)\),
+are \(p\) and \((r\land \neg q)\), which is an
+           <strong>
+            AND
+           </strong>
+           gate.
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           5) The inputs to the
+           <strong>
+            AND
+           </strong>
+           , gate, \(r \underline{\land} \neg q\), are
+\(r\) and the output of an
+           <strong>
+            INVERTER
+           </strong>
+           , \(\underline{\neg} q\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Putting these now in left to right order we obtain the following logic circuit.
+          </p>
+         </div>
+         <div class="imageblock">
+          <div class="content">
+           <img alt="logic gate 5" src="images/logic_gate_5.png"/>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+  
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

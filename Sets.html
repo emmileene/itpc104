@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ITPC104 - Discrete Structures</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+<body>
+   
+   
+   <div class="exercise">
+   <div class="title">
+   <h1>
+     Set Theory
+    </h1>
+    <div class="sectionbody">
+     <div class="sect2">
+      <h3 id="_sets">
+     Sets
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         set
+        </strong>
+        is an unordered collection of objects, called
+        <strong>
+         elements
+        </strong>
+        or
+        <strong>
+         members
+        </strong>
+        . A set is said to
+        <strong>
+         contain
+        </strong>
+        its elements. If \(x\) is an element of the set \(A,\) then we write \(x \in A\). If \(x\) is not an element of the set \(A\), then we write \(x \not\in A\).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        For example, if \(S\) is the set of states in the United States, then New York is an element of \(S\) and Ontario is not an element of \(S.\) If \(E\) is the set of even integers, then \(2 \in E\) and \(3 \not\in E.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        There are several different ways to describe a set. One way of describing a set is known as the
+        <strong>
+         roster method
+        </strong>
+        . This is where we list all the elements of a set between curly braces. For example, \(\{a,b,c\}\) is the set whose elements are \(a,\) \(b,\) and \(c.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In addition to
+        <em>
+         int
+        </em>
+        (integer),
+        <em>
+         float
+        </em>
+        and
+        <em>
+         string
+        </em>
+        , one can build sets in Python using curly braces. Set data types are unordered and
+ignore duplicate elements.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Checking Set Membership in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below checks to see if \(5\) and \(0\) are elements of the set \(A = \{-2,0,1,4\}.\) Since \(5 \not\in A\) and \(0 \in A,\) the code prints False followed by True.
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-2,0,1,4%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-2,0,1,4%7D%0Aprint%285%20in%20A%29%0Aprint%280%20in%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Listing the Elements of a Set in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The code below lists all of the elements of the set \(A = \{-2,0,1,4\}.\)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-2,0,1,4%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-2,0,1,4%7D%0Afor%20x%20in%20A%3A%0A%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Another way of describing a set is the use of
+        <strong>
+         set builder
+        </strong>
+        notation. We write a set as \[\{x \in D : P(x)\}.\]This is the set of all elements \(x\) from a domain \(D\) that satisfy the predicate \(P(x).\)
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="paragraph">
+         <div class="title">
+          Example - Switching between representations
+         </div>
+         <p>
+          Consider the following set: \[\{x \in \mathbb{Z} : -2 \leq x &lt; 4\}.\] This is the set of all integers \(x\) such that \(-2\) is less than or equal \(x\) and \(x\) is less than 4. Using the roster method, this set can be written as \[\{-2,-1,0,1,2,3\}.\]
+         </p>
+        </div>
+ 
+
+       </div>
+      </div>
+      <div class="admonitionblock note">
+       <table>
+        <tr>
+         <td class="icon">
+          <i class="fa icon-note" title="Note">
+          </i>
+         </td>
+         <td class="content">
+          <div class="paragraph">
+           <p>
+            When there are too many elements in a set for us to be able to list each one, we often use ellipses (\(\dots\)) when the pattern is obvious. For example, we have \[\mathbb{Z} = \{\dots,-3,-2,-1,0,1,2,3,\dots\}.\]
+           </p>
+          </div>
+         </td>
+        </tr>
+       </table>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Set Builder Notation in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The set \(\{x \in D: P(x)\}\) can be expressed in Python as {for x in D if P(x)}. For example, the code below defines the set \(B\) as the set of positive elements of the set \(A = \{-2,0,1,4\}.\)
+         </p>
+        </div>
+        <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-2,0,1,4%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-2,0,1,4%7D%0AB%20%3D%20%7Bx%20for%20x%20in%20A%20if%20x%20%3E%200%7D%0Aprint%28B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        We make frequent use of special sets and these are denoted with special symbols.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="title">
+         Special sets of numbers
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>
+            \(\mathbb{Z}\)       ,   \(\{-2,   -1, 0, 1, 2,...\}\) , the set of integers
+            <br/>
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\mathbb{Z}^+\)  or \(\mathbb{N}\),    \(\{1, 2, 3,...\}\), the set of natural numbers or positive integers
+            <br/>
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\mathbb{Q}\) , \( \left\{\left.\frac{a}{b}\right|a\in \mathbb{Z},b\in \mathbb{Z},b\neq 0\right\}\), the set of rational numbers of the form
+\(\frac{2}{3}\)
+            <br/>
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\mathbb{R}\), the set of real numbers
+            <br/>
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\mathbb{R}^+\), the set of positive real numbers
+            <br/>
+           </p>
+          </li>
+          <li>
+           <p>
+            \(\mathbb{C}\), \(\{a+ib|a\in \mathbb{R},b\in \mathbb{R},b\neq 0\}\), the set of complex numbers of the form \(2+3i\).
+            <br/>
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Other special sets will be defined as needed.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_empty_set">
+        Empty Set
+       </h4>
+       <div class="paragraph">
+        <p>
+         Consider the following set described using set builder notation: \[\{x \in \mathbb{Z} : x^2 = 2\}.\]This is the set of all integers whose square is equal to 2. However, no such integers exist. Therefore, using the roster method to describe it, this is the set \(\{ \}.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We call the set \(\{ \}\) the
+         <strong>
+          empty set
+         </strong>
+         and denote this set by \(\emptyset.\) The empty set has no elements.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Listing the Elements of a Nonempty Set
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Since Python interprets {} as an empty dictionary, we cannot use this notation for the empty set. Instead, we must write the empty set as follows:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           set()
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           The function in the code below checks to see if a set is empty. If the set is nonempty, its elements are listed.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20Elements%28A%29%3A%0A%20%20%20%20if%20A%20%3D%3D%20set%28%29%3A%0A%20%20%20%20%20%20%20%20print%28%22the%20set%20is%20empty%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20print%28x,%20%22is%20an%20element%20of%20the%20set%22%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             It is important to note that \(\{\}\) and \(\emptyset\) are both ways to write the empty set. However, the set \(\{ \emptyset \}\) is not the empty set; rather, it is a set which contains a single element. The single element conained in the set \(\{ \emptyset \}\) is the empty set. In general, the set \(A\) is not the same as the set \(\{ A \}.\)
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_cardinality">
+      Cardinality
+       </h4>
+       <div class="paragraph">
+        <p>
+         Suppose that a set \(A\) contains a finite number of distinct elements. We refer to the number of elements of \(A\) as the
+         <strong>
+          cardinality
+         </strong>
+         of \(A\) and denote this by \(|A|\). If \(A\) contains an infinite number of distinct elements, we say that \(A\) has infinite cardinality and we write \(|A| = \infty.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Thus, we see that \(|\{0,1,2\}| = 3\) and \(|\mathbb{Z}| = \infty.\) Additionally, note that \(|\emptyset| = 0.\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Cardinality in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The cardinality of a set \(A\) can be computed in Python as follows:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           len(A)
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,3,5,8%7D%0AB%20%3D%20set%28%29%0AC%20%3D%20%7B0%7D%0Aprint%28len%28A%29%29%0Aprint%28len%28B%29%29%0Aprint%28len%28C%29%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_equality">
+        Equality
+       </h4>
+       <div class="paragraph">
+        <p>
+         We say that two sets are
+         <strong>
+          equal
+         </strong>
+         if and only if they contain the same elements. In other words, \(A\) and \(B\) are equal sets if and only if \[\forall x (x \in A \iff x \in B).\]When \(A\) and \(B\) are equal sets, we write \(A = B\). When \(A\) and \(B\) are not equal sets, we write \(A \neq B\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         The sets \(\{2,3,5\}\) and \(\{5,2,3\}\) are equal sets, since they contain the same elements. The order in which the elements of a set are listed does not matter. Additionally, it does not matter whether elements are repeated. Thus, the sets \(\{a,b,c\}\) and \(\{b,b,a,c,b,a,c,c,c\}\) are equal sets as well.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_subsets">
+        Subsets
+       </h4>
+       <div class="paragraph">
+        <p>
+         We say that a set \(A\) is a
+         <strong>
+          subset
+         </strong>
+         of a set \(B\) if and only if every element of \(A\) is an element of \(B.\) In other words, \(A\) is a subset of \(B\) if and only if \[\forall x (x \in A \implies x \in B).\]When \(A\) is a subset of \(B,\) we write \(A \subseteq B\). When \(A\) is not a subset of \(B,\) we write \(A \not\subseteq B\).
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         In order to show that \(A\) is a subset of \(B,\) we must show that, whenever \(x \in A,\) it is also the case that \(x \in B.\) In order to show that \(A\) is not a subset of \(B,\) we must find a single \(x\) such that \(x \in A\) but \(x \not \in B.\)
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           If we let \(S = \{1,5\}\) and \(T = \{1,3,5\},\) then \(S \subseteq T,\) since each element of \(S\) is an element of \(T,\) but \(T \not\subseteq S,\) since \(3\) is an element of \(T\) that is not an element of \(S.\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           If we let \(A\) be the set of professional athletes and let \(F\) be the set of professional football players, we have \(F \subseteq A,\) since every professional football player is a professional athlete, but \(A \not\subseteq F,\) since not every professional athlete is a professional football player.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any set \(A,\) it is always the case that \(\emptyset \subseteq A\) and \(A \subseteq A.\) For any sets \(A\) and \(B,\) if \(A \subseteq B\) and \(B \subseteq A,\) then \(A = B.\)
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         If \(A \subseteq B\) and \(B\) contains at least one element that is not in A, then we say \(A\) is a
+         <strong>
+          proper subset
+         </strong>
+         of \(B\), denoted \(A \subset B\).
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Subsets in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can check whether a set \(A\) is a subset of a set \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.issubset(B)
+           <br/>
+           A &lt;= B.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B2,4,6,8,10,12%7D%0AB%20%3D%20%7B4,8,12%7D%0Aprint%28A.issubset%28B%29%29%0Aprint%28B%20%3C%3D%20A%29%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_power_set">
+        Power Set
+       </h4>
+       <div class="paragraph">
+        <p>
+         Given a set \(A,\) we refer to the
+         <strong>
+          power set
+         </strong>
+         of \(A\) as the set of all subsets of \(A.\) The power set of \(A\) is denoted by \(\mathcal{P}(A).\)
+        </p>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             \(\mathcal{P}(A)\) is a set whose elements are all sets.
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         If we let \(A = \{a,b,c\},\) we see that \[\mathcal{P}(A) = \{\emptyset, \{ a \}, \{ b \}, \{ c \}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\}.\] The empty set only has the empty set as a subset. Thus, we see that \[\mathcal{P}(\emptyset) = \{\emptyset\}.\]We can also take the power set of a power set. For example, we have the following:
+        </p>
+       </div>
+       <div class="openblock equationalign">
+        <div class="content">
+         <table class="equation_table_style">
+          <tr class="equation_row_style">
+           <td ;="" class="equation_content_style">
+            \[\begin{split}
+\mathcal{P}(\{ 1 \}) &amp;= \{\emptyset, \{ 1 \}\},\\
+\mathcal{P}(\mathcal{P}(\{ 1 \}) &amp;= \mathcal{P}(\{\emptyset, \{ 1 \})\\
+&amp;= \{\emptyset, \{\emptyset\}, \{ \{ 1 \} \}, \{\emptyset, \{ 1 \}\}\}.
+\end{split}\]
+           </td>
+          </tr>
+         </table>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="title">
+          Cardinality of Power Set
+         </div>
+         <div class="paragraph">
+          <p>
+           If \(A\) is a finite set such that \(|A| = n,\) then \(\left|\mathcal{P}(A)\right| = 2^n.\)
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="sect2">
+      <h3 id="_set_operations">
+      Set Operations
+      </h3>
+      <div class="paragraph">
+       <p>
+        We can obtain new sets by performing operations on other sets. When performing set operations, it is often helpful to consider all of our sets as subsets of a
+        <strong>
+         universal set
+        </strong>
+        \(U.\) We can think of the universal set as the set of all of the objects under consideration.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can represent set operations visually using
+        <strong>
+         Venn diagrams
+        </strong>
+        , named after the English mathematician John Venn. A Venn diagram will consist of a rectangle, which represents the universal set, and one or more circles, which represent the sets under consideration. We will then shade in the regions of the diagram that correspond to one or more set operations.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_union">
+         Union
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          union
+         </strong>
+         of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) or \(B\) or both, and is denoted by \(A \cup B\). More formally, \[A \cup B = \{x \in U : x \in A \lor x \in B\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(A \cup B\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="Union" src="images/5.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any sets \(A\) and \(B,\) \[A \cup B = B \cup A.\]
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cup B = \{1,2,3,4,5,6,7,9\}.\]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Union in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can compute the union of sets \(A\) and \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.union(B)
+           <br/>
+           A | B
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.union%28B%29%29%0Aprint%28A%20%7C%20B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.union%28B%29%29%0Aprint%28A%20%7C%20B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_intersection">
+        Intersection
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          intersection
+         </strong>
+         of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) and \(B\) and is denoted by \(A \cap B\). More formally, \[A \cap B = \{x \in U : x \in A \land x \in B\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(A \cap B\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="Intersection" src="images/6.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any sets \(A\) and \(B,\) \[A \cap B = B \cap A.\] If it is the case that \(A \cap B = \emptyset,\) then we say that \(A\) and \(B\) are
+         <strong>
+          disjoint
+         </strong>
+         . In other words, two sets are disjoint if and only if they contain no elements in common.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \cap B = \{1,3,5\}.\]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Intersection in Pythong
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can compute the intersection of sets \(A\) and \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.intersection(B)
+           <br/>
+           A &amp; B
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.intersection%28B%29%29%0Aprint%28A%20%26%20B%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.intersection%28B%29%29%0Aprint%28A%20%26%20B%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_difference">
+        Difference
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          difference
+         </strong>
+         of the sets \(A\) and \(B\) is the set containing those elements that are in \(A\) but not in \(B\) and is denoted by \(A \setminus B\). Set difference is also denoted by \(A - B\). More formally, \[A \setminus B = \{x \in U: x \in A \land x \not\in B\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(A \setminus B\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="A Subtract B" src="images/7.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         Note that, for any sets \(A\) and \(B,\) if \(A = B,\) then \(A \setminus B = \emptyset\) and \(B \setminus A = \emptyset\). Thus, when \(A = B,\) \[A\setminus B = B \setminus A.\] However, if \(A \neq B,\) then \[A \setminus B \neq B \setminus A.\]
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[A \setminus B = \{2,4,6\}\] and \[B \setminus A = \{7,9\}.\]
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Difference in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           In Python, we can compute the difference of sets \(A\) and \(B\) in one of the following ways:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           A.difference(B)
+           <br/>
+           A - B
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.difference%28B%29%29%0Aprint%28B%20-%20A%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=A%20%3D%20%7B-3,-1,2,5%7D%0AB%20%3D%20%7B-1,%200,%202%7D%0A%0Aprint%28A.difference%28B%29%29%0Aprint%28B%20-%20A%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_complement">
+        Complement
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          complement
+         </strong>
+         of a set \(A\) is the set of all elements in the universal set \(U\) which are not elements of \(A\) and is denoted by \(\overline{A}.\) More formally, \[\overline{A} = \{x \in U: x \not\in A\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \(\overline{A}\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="ComplementA" src="images/8.png"/>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         For any set \(A,\) \[\overline{A} = U \setminus A.\]
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Suppose that our universal set is \(U = \{0,1,2,3,4,5,6,7,8,9\},\) the set of all decimal digits. If we let \(A = \{1,2,3,4,5,6\}\) and \(B = \{1,3,5,7,9\},\) then \[\overline{A} = \{0,7,8,9\}\] and \[\overline{B} = \{0,2,4,6,8\}.\]
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Example
+          </div>
+          <p>
+           Suppose that our universal set is \(\mathbb{Z}.\) If we let \(E\) be the set of all even integers, then \(\overline{E}\) is the set of all odd integers.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_multiple_set_operations">
+      Multiple Set Operations
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can also perform more than one set operation on a collection of sets. For example, let \(A,\) \(B,\) and \(C\) be sets and consider the following set: \[(A \setminus B) \cup (C \setminus B).\]This is the set that is obtained by taking the union of the sets \(A \setminus B\) and \(C \setminus B.\) We have \[(A \setminus B) \cup (B \setminus A) = \{x \in U: (x \in A \land x \not\in B) \lor (x \in C \land x \not\in B)\}.\]
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We have the following Venn Diagram for \((A \setminus B) \cup (C \setminus B)\):
+        </p>
+       </div>
+       <div class="imageblock">
+        <div class="content">
+         <img alt="AminusBunionCminusB" src="images/9.png"/>
+        </div>
+       </div>
+      
+ 
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Draw Venn Diagrams for each of these combinations of the sets \(A\), \(B\), and \(C\).
+          </p>
+         </div>
+         <div class="olist arabic">
+          <ol class="arabic">
+           <li>
+            <p>
+             \(A \cap (B \cup C)\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((A \cap B) \cup C\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((\overline{A} \cap \overline{C}) \cup B\)
+            </p>
+           </li>
+           <li>
+            <p>
+             \((B \cup C) \setminus A\)
+            </p>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+      </div>
+
+     </div>
+     <div class="sect2">
+      <h3 id="_representing_sets_as_lists">
+     Representing Sets as Lists
+      </h3>
+      <div class="paragraph">
+       <p>
+        We can represent sets in Python using lists. The empty set \(\{ \}\) is represented by the empty list []. Several different lists may represent the same set. For example, the lists [2, 0, 1] and [1, 2, 2, 0, 1, 0, 1] both represent the set \(\{0,1,2\}.\)
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        It can be helpful for us to remove duplicate elements from a list. For example, this will be necesssary when computing the cardinality of a set.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Remove Duplicates and Cardinality in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The following code contains a function that removes duplicate elements from a set and another that computes the cardinality of a set.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20RemoveDuplicates%28A%29%3A%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20B%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20B%0A%0Adef%20Cardinality%28A%29%3A%0A%20%20%20%20AA%20%3D%20RemoveDuplicates%28A%29%0A%20%20%20%20return%20len%28AA%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20RemoveDuplicates%28A%29%3A%0A%20%20%20%20B%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20B%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20B%0A%0Adef%20Cardinality%28A%29%3A%0A%20%20%20%20AA%20%3D%20RemoveDuplicates%28A%29%0A%20%20%20%20return%20len%28AA%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        For the rest of the section, we will assume that none of our lists have duplicate elements. Otherwise, we can add one or more lines to each program given below to remove duplicated elements.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can test whether two sets are equal by testing whether the first is a subset of the second and whether the second is a subset of the first.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Subset and Equal in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The followwing code contains a function that checks whether one set is a subset of another and a function that checks whether two sets are equal.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20Subset%28A,B%29%3A%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Adef%20Equal%28A,B%29%3A%0A%20%20%20%20if%20Subset%28A,B%29%20and%20Subset%28B,A%29%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20False%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Subset%28A,B%29%3A%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20False%0A%20%20%20%20return%20True%0A%0Adef%20Equal%28A,B%29%3A%0A%20%20%20%20if%20Subset%28A,B%29%20and%20Subset%28B,A%29%3A%0A%20%20%20%20%20%20%20%20return%20True%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%20False%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        One benefit to using lists instead of sets is that Python does not allow the elements of a set to be sets, but the elements of a list can be lists. This allows us to represent the power set of a set as a list. For example, the power set of [1, 2] is
+       </p>
+      </div>
+      <div class="paragraph text-center">
+       <p>
+        [[], [1], [2], [1,2]].
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        We can also represent the union, intersection, and difference of two sets.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Union in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The following code contains a function that finds the union of two sets.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20Union%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20for%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Union%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20for%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Intersection in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The following code contains a function that finds the intersection of two sets.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20Intersection%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Intersection%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="openblock">
+         <div class="title">
+          Example - Difference in Python
+         </div>
+         <div class="content">
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>
+          The following code contains a function that finds the difference of two sets.
+         </p>
+        </div>
+        <iframe frameborder="5" height="450" src="https://pythontutor.com/iframe-embed.html#code=def%20Difference%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C%0A&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=450" width="100%">
+        </iframe>
+        <div style="text-align: right;">
+         <a href="http://www.pythontutor.com/visualize.html#code=def%20Difference%28A,B%29%3A%0A%20%20%20%20C%20%3D%20%5B%5D%0A%20%20%20%20for%20x%20in%20A%3A%0A%20%20%20%20%20%20%20%20if%20x%20not%20in%20B%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20x%20not%20in%20C%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20C%20%2B%3D%20%5Bx%5D%0A%20%20%20%20return%20C%0A&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+          Edit in PythonTutor
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+  
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ITPC104 - Discrete Structures</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+ <body>
+ 
+  <div id="content">
+   <div class="sect1">
+    <h2 id="_logic">
+     Logic
+    </h2>
+    <div class="sectionbody">
+     <div class="sect2">
+      <h3 id="_propositional_logic">
+       Propositional Logic
+      </h3>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         proposition
+        </strong>
+        is a sentence that declares a fact that is either True or False.
+       </p>
+      </div>
+      <div class="sidebarblock">
+       <div class="content">
+        <div class="ulist">
+         <div class="title">
+          Examples - Propositions
+         </div>
+         <ul>
+          <li>
+           <p>
+            Atlanta is the capital of Iowa.
+           </p>
+          </li>
+          <li>
+           <p>
+            1 + 1 is 2.
+           </p>
+          </li>
+          <li>
+           <p>
+            1 + 1 is 3.
+           </p>
+          </li>
+         </ul>
+        </div>
+        <div class="ulist">
+         <div class="title">
+          Not propositions
+         </div>
+         <ul>
+          <li>
+           <p>
+            How much is this cookie?
+           </p>
+          </li>
+          <li>
+           <p>
+            This sentence is false.
+           </p>
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="paragraph">
+       <p>
+        Propositional logic consists of a set of formal rules for combining propositions in order to derive new propositions.
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        In Python, we can use boolean variables (typically \(p\) and \(q\)) to represent propositions and define functions for each propositional rule.  Each rule can be implemented using the boolean operators (and, or, not).
+       </p>
+      </div>
+      <div class="paragraph">
+       <p>
+        A
+        <strong>
+         truth table
+        </strong>
+        is a method of showing truth values of compound propositions using the truth values of its components.  It is typically created with rows representing possible truth values and columns representing the propositions.
+       </p>
+      </div>
+      <div class="sect3">
+       <h4 id="_negation">
+       Negation
+       </h4>
+       <div class="paragraph">
+        <p>
+         The
+         <strong>
+          negation
+         </strong>
+         is a statement that has the opposite truth value.
+The negation of a proposition \(p\), denoted by \(\neg p\), is the proposition "It is
+         <em>
+          not the case
+         </em>
+         , that \(p\)".
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         For example, the negation of the proposition "Today is Friday." would be "It is not the case that, today is Friday." or more succinctly "Today is not Friday."
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 50%;"/>
+         <col style="width: 50%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(\neg p\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Negation in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below prints the truth table for negation.  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Next
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20negation%28p%29%3A%0A%20%20%20%20return%20not%20p%0A%0Aprint%28%22p%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20a%20%3D%20negation%28p%29%0A%20%20%20%20print%28p,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_conjunction">
+        Conjunction
+       </h4>
+       <div class="paragraph">
+        <p>
+         "I am a rock
+         <strong>
+          and
+         </strong>
+         I am an island."
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(p\) and \(q\) be propositions.  The conjunction of \(p\) and \(q\), denoted in mathematics by \(p \land q\), is True when both \(p\) and \(q\) are True, False otherwise.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3334%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \land q\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Conjunction in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below prints the truth table for conjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Next
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20conjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20conjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_disjunction">
+        Disjunction
+       </h4>
+       <div class="paragraph">
+        <p>
+         "She studied hard
+         <strong>
+          or
+         </strong>
+         she is extremely bright."
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(p\) and \(q\) be propositions.  The disjunction of \(p\) and \(q\), denoted in mathematics by \(p \lor q\), is True when at least one of \(p\) and \(q\) are True, False otherwise.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3334%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \lor q\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Disjunction in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below prints the truth table for disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Next
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29%0A%20%20%20%20%20%20%20%20&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29%0A%20%20%20%20%20%20%20%20&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_exclusive_disjunction">
+         Exclusive Disjunction
+       </h4>
+       <div class="paragraph">
+        <p>
+         "Take
+         <strong>
+          either
+         </strong>
+         2 Advil
+         <strong>
+          or
+         </strong>
+         2 Tylenol."
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(p\) and \(q\) be propositions.  The exclusive disjunction of \(p\) and \(q\) (also known as
+         <em>
+          xor
+         </em>
+         ), denoted in mathematics by \(p \oplus q\), is True when exactly one of \(p\) and \(q\) are True, False otherwise.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3334%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \oplus q\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             Exclusive disjunction can be thought of as one or the other, but not both.
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Exclusive Disjunction in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below prints the truth table for exclusive disjunction.  Try to predict the variable names, values, and data types at different steps in the execution. Use the
+           <em>
+            Forward
+           </em>
+           button to check your answers.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20exclusive_disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20%28p%20and%20not%20q%29%20or%20%28not%20p%20and%20q%29%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20exclusive_disjunction%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_implication">
+        Implication
+       </h4>
+       <div class="paragraph">
+        <p>
+         "
+         <strong>
+          If
+         </strong>
+         you get a 100 on the final exam,
+         <strong>
+          then
+         </strong>
+         you earn an A in the class."
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(p\) and \(q\) be propositions.  The implication of \(p\) and \(q\),
+denoted in mathematics by \(p \implies q\), is short hand for the statement "if p then q".  As such, implication requires \(q\) to be True whenever \(p\) is True.  If \(p\) is not True, then \(q\) can be any value. In other words, implication fails (is False) when \(p\) is True and \(q\) is False. Note, this is different from "p if and only if q".
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3334%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \implies q\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             Implication can be considered a "contract" which fails
+             <em>
+              only when
+             </em>
+             the conditions are met and the results are not fulfilled.
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Implication in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Try to complete the code below by clicking edit and replacing \(#FIX ME#\). Once correctly defined, the correct truth table for implication should print.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_converse_contrapositive_and_inverse_of_an_implication">
+        Converse, Contrapositive and Inverse of an Implication
+       </h4>
+       <div class="paragraph">
+        <p>
+         We can form new compound propositions from the implication, \(p \implies q\).  They are
+        </p>
+       </div>
+       <div class="ulist">
+        <ul>
+         <li>
+          <p>
+           The
+           <strong>
+            converse
+           </strong>
+           :  \(q \implies p\)
+          </p>
+         </li>
+         <li>
+          <p>
+           The
+           <strong>
+            contrapositive
+           </strong>
+           : \( \neg q \implies \neg p\)
+          </p>
+         </li>
+         <li>
+          <p>
+           The
+           <strong>
+            inverse
+           </strong>
+           \( \neg p \implies \neg q\)
+          </p>
+         </li>
+        </ul>
+       </div>
+       <div class="paragraph">
+        <p>
+         The truth tables for these new propositions are shown in the table.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 16.6666%;"/>
+         <col style="width: 16.6666%;"/>
+         <col style="width: 16.6666%;"/>
+         <col style="width: 16.6666%;"/>
+         <col style="width: 16.6666%;"/>
+         <col style="width: 16.667%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \implies q\) (conditional)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q \implies p \) (converse)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \( \neg q \implies \neg p\) (contrapositive)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \( \neg p \implies \neg q\) (inverse)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="paragraph">
+        <p>
+         In the section proposition equivalences, it will explained why the truth table
+shows that the conditional \(p \implies q\) and contrapositive
+\( \neg q \implies \neg p\) are logically equivalent, and why
+the converse \(q \implies p\) and inverse \( \neg p \implies \neg q\) are
+logically equivalent.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         We illustrate these ideas with an example.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="olist loweralpha">
+          <div class="title">
+           Example 6 - Conditional, Converse, Contrapositive and Inverse.
+          </div>
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Translate the statement, "If an integer \(n\), is divisible by \(4\), then it is
+divisible by \(2\)", using a conditional.
+            </p>
+           </li>
+           <li>
+            <p>
+             Form its converse, contrapositive, and inverse and translate.
+            </p>
+           </li>
+          </ol>
+         </div>
+         <div class="olist loweralpha">
+          <div class="title">
+           Solution
+          </div>
+          <ol class="loweralpha" type="a">
+           <li>
+            <p>
+             Let
+            </p>
+            <div class="paragraph">
+             <p>
+              \(p\): An integer \(n\), is divisible by \(4\)
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              \(q\): An integer \(n\), is divisible by \(2\)
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              The sentence, "If an integer \(n\), is divisible by \(4\), then it is
+divisible by \(2\)", is translated \(p\implies q\).
+             </p>
+            </div>
+           </li>
+           <li>
+            <p>
+             Its converse is \(q \implies p\), which may be translated,
+"If an integer \(n\), is divisible by \(2\), then it is
+divisible by \(4\)."
+            </p>
+            <div class="paragraph">
+             <p>
+              The contrapositive is \( \neg  q \implies \neg p\), which may be translated,
+"If an integer \(n\), is  not divisible by \(2\), then it is not divisible by 4."
+             </p>
+            </div>
+            <div class="paragraph">
+             <p>
+              The inverse  is \( \neg p \implies \neg q\), which may be translated,
+"If an integer \(n\), is  not divisible by \(4\), then it is not divisible by \(2\)."
+             </p>
+            </div>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_bi_implication">
+        Bi-Implication
+       </h4>
+       <div class="paragraph">
+        <p>
+         "It is raining outside
+         <strong>
+          if and only if
+         </strong>
+         it is a cloudy day."
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         Let \(p\) and \(q\) be propositions. The
+         <strong>
+          bi-implication
+         </strong>
+         of \(p\) and \(q\),
+denoted in mathematics by \(p \iff q\), is short hand for the statement "p if and only if q". As such, bi-implication requires \(q\) to be True only when \(p\) is True.  In other words, bi-implication fails (is False) when \(p\) is True and \(q\) is False or when \(p\) is False and \(q\) is True.
+        </p>
+       </div>
+       <table class="tableblock frame-all grid-all" style="width: 50%;">
+        <colgroup>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3333%;"/>
+         <col style="width: 33.3334%;"/>
+        </colgroup>
+        <thead>
+         <tr>
+          <th class="tableblock halign-left valign-top">
+           \(p\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(q\)
+          </th>
+          <th class="tableblock halign-left valign-top">
+           \(p \iff q\)
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+         </tr>
+         <tr>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            False
+           </p>
+          </td>
+          <td class="tableblock halign-left valign-top">
+           <p class="tableblock">
+            True
+           </p>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example - Bi-Implication in Python
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Try to complete the code below by clicking edit and replacing \(#FIX ME#\). Once correctly defined, the correct truth table should print.
+          </p>
+         </div>
+         <iframe frameborder="5" height="350" src="https://pythontutor.com/iframe-embed.html#code=def%20bi_implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20bi_implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=350" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20bi_implication%28p,%20q%29%3A%0A%20%20%20%20return%20%23FIX%20ME%23%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20bi_implication%28p,%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="admonitionblock note">
+        <table>
+         <tr>
+          <td class="icon">
+           <i class="fa icon-note" title="Note">
+           </i>
+          </td>
+          <td class="content">
+           <div class="paragraph">
+            <p>
+             Bi-implication is True if the propositions have the same truth value and False otherwise.
+            </p>
+           </div>
+          </td>
+         </tr>
+        </table>
+       </div>
+       <div class="paragraph">
+        <p>
+         It is important to contrast implication with bi-implication.  Consider the implication example "If you get a 100 on the final exam, then you earn an A in the class."  This means that when you get a 100 on the final you also get an A in the class.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         As a bi-implication it would say "You get a 100 on the final exam if and only if you earn an A in the class."  This becomes a two-way contract where you can earn an A in the class by getting a 100 on the final, but if you do not get a 100 on the final you will not earn an A.
+        </p>
+       </div>
+      </div>
+      <div class="sect3">
+       <h4 id="_compound_propositions">
+        Compound Propositions
+       </h4>
+       <div class="paragraph">
+        <p>
+         To find truth values of compound propositions, it is useful to break them up into smaller parts.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           The code below reveals the truth table of the compound proposition:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \((p \land q) \lor \neg q\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           Recall: \(\neg q\) is mathematical shorthand for
+           <em>
+            not q
+           </em>
+           .
+          </p>
+         </div>
+         <iframe frameborder="5" height="400" src="https://pythontutor.com/iframe-embed.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=450&amp;codeDivHeight=400" width="100%">
+         </iframe>
+         <div style="text-align: right;">
+          <a href="http://www.pythontutor.com/visualize.html#code=def%20conjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20and%20q%0A%0Adef%20disjunction%28p,%20q%29%3A%0A%20%20%20%20return%20p%20or%20q%0A%0Aprint%28%22p%20%20%20%20q%20%20%20%20a%22%29%0Afor%20p%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20for%20q%20in%20%5BTrue,%20False%5D%3A%0A%20%20%20%20%20%20%20%20a%20%3D%20disjunction%28conjunction%28p,%20q%29,%20not%20q%29%0A%20%20%20%20%20%20%20%20print%28p,%20q,%20a%29&amp;mode=edit&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0" style="" target="_blank">
+           Edit in PythonTutor
+          </a>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           You Try
+          </div>
+          <p>
+           Edit the code above to reveal the truth value of the compound proposition:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \((p \lor \neg q) \land \neg p\)
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           <strong>
+            Hint:
+           </strong>
+           You only need to change line 10.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         When creating your own truth table it is crucial to be systematic about ensuring you have all possible truth values for each of the simple propositions.  Each simple proposition has two possible truth values, so the number of rows in the table should be \(2^n\) where \(n\) is the number of propositions. You should also consider breaking complex propositions into smaller pieces.
+        </p>
+       </div>
+       <div class="sidebarblock">
+        <div class="content">
+         <div class="openblock">
+          <div class="title">
+           Example
+          </div>
+          <div class="content">
+          </div>
+         </div>
+         <div class="paragraph">
+          <p>
+           Create a truth table for the compound proposition:
+          </p>
+         </div>
+         <div class="paragraph">
+          <p>
+           \((p \land q) \implies (p \land r)\) for all values of \(p, q, r\).
+          </p>
+         </div>
+         <div class="paragraph">
+          <div class="title">
+           Solution
+          </div>
+          <p>
+           It should have 8 rows - since there are three simple propositions and each one has two possible truth values.
+          </p>
+         </div>
+         <table class="tableblock frame-all grid-all" style="width: 50%;">
+          <colgroup>
+           <col style="width: 16.6666%;"/>
+           <col style="width: 16.6666%;"/>
+           <col style="width: 16.6666%;"/>
+           <col style="width: 16.6666%;"/>
+           <col style="width: 16.6666%;"/>
+           <col style="width: 16.667%;"/>
+          </colgroup>
+          <thead>
+           <tr>
+            <th class="tableblock halign-left valign-top">
+             \(p\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(q\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(r\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(p \land q\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \(p \land r\)
+            </th>
+            <th class="tableblock halign-left valign-top">
+             \((p \land q) \implies (p \land r)\)
+            </th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              F
+             </p>
+            </td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">
+              T
+             </p>
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+       <div class="paragraph">
+        <p>
+         <strong>
+          Logical Translations
+         </strong>
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         A long time ago philosophers discovered we could put our thoughts into symbols and more easily follow lines of reasoning. This was an important step in the eventual development of our modern technological society and our use of digital computers. Before computers can work, we have to put our thoughts into them.
+        </p>
+       </div>
+       <div class="paragraph">
+        <p>
+         BUT, the English language is difficult and we use many different phrases to represent the same logical statements.  Translating statements from English sentences to symbols and back is a skill that needs lots of practice.
+        </p>
+       </div>
+      </div>
+     </div>
+	 
+	 
+	 
+	 
+	 
+	 
+    
+    
+    </div>
+   </div>
+  </div>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { extensions: ["mhchem.js"] }
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML">
+  </script>
+ </body>
+</html>
